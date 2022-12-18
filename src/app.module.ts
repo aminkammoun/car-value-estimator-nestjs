@@ -7,11 +7,15 @@ import { ReportsModule } from './reports/reports.module';
 import { User } from './users/entities/user.entity';
 import { Reports } from './reports/entities/reports.entity';
 import { TestCrudModule } from './test-crud/test-crud.module';
-
+import { DB_NAME } from './environments';
+import { ConfigModule } from '@nestjs/config';
 @Module({
-  imports: [TypeOrmModule.forRoot({
+  imports: [ConfigModule.forRoot({
+    isGlobal: true,
+    envFilePath: ['.env'],
+  }), TypeOrmModule.forRoot({
     type: 'sqlite',
-    database: 'db.sqlite',
+    database: DB_NAME,
     entities: [User, Reports],
     synchronize: true
   }),
