@@ -24,10 +24,12 @@ export class UsersController {
         session.id = user.id
         return user
     }
-
+    @Serialize(UserInterDto)
     @Get('/auth/current')
     @UseGuards(AuthGuard)
     async getCurrentUser(@CurrentUser() user: User) {
+        console.log(user);
+        
         return user
     }
 

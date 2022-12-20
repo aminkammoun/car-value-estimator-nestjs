@@ -7,4 +7,6 @@ export class UserUpdateDto {
     @IsEmail()
     @IsOptional()
     email: string
+    @IsOptional()
+    admin: boolean
 }

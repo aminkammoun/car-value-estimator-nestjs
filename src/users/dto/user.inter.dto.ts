@@ -4,5 +4,7 @@ export class UserInterDto{
     @Expose()
     id: number;
     @Expose()
-    email: string;  
+    email: string; 
+     @Expose()
+     admin: boolean;
 }

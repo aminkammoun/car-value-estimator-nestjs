@@ -15,7 +15,6 @@ export class CreateReportsDto {
     lng: number;
     @IsNumber()
     lat: number;
-
     @IsNumber()
     @Min(0)
     @Max(100000000)
