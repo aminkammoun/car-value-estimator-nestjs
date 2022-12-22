@@ -10,15 +10,17 @@ import { TestCrudModule } from './test-crud/test-crud.module';
 import { DB_NAME } from './environments';
 import { ConfigModule } from '@nestjs/config';
 @Module({
-  imports: [ConfigModule.forRoot({
-    isGlobal: true,
-    envFilePath: ['.env'],
-  }), TypeOrmModule.forRoot({
-    type: 'sqlite',
-    database: DB_NAME,
-    entities: [User, Reports],
-    synchronize: true
-  }),
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: ['.env'],
+    }),
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: DB_NAME,
+      entities: [User, Reports],
+      synchronize: true
+    }),
     /* TypeOrmModule.forRoot({
       type: 'mongodb',
       url: 'mongodb://localhost:27017',
